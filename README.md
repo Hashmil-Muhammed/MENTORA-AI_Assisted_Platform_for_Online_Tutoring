@@ -2,6 +2,8 @@
 
 <img src="./logo.svg" alt="Mentora Logo" width="120" />
 
+<img src="https://img.shields.io/badge/Mentora-Intelligent%20Tutoring%20Platform-ff5734?style=for-the-badge&logo=react&logoColor=white" alt="Mentora" />
+
 # 🧠 Mentora
 ### *An AI-Powered Tutoring and Session Management Platform*
 
@@ -27,6 +29,42 @@
 <p align="center">
   <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=15,13,13&height=180&section=header&text=Mentora&fontSize=60&fontColor=ff5734&animation=twinkling&fontAlignY=32&desc=AI%20Powered%20Tutoring%20Platform&descAlignY=62&descSize=16" />
 </p>
+
+### 🎥 Project Working Demo
+
+*(Demo video coming soon...)*
+
+---
+
+## 📋 Table of Contents
+
+- [✨ Core Features](#-core-features)
+- [🎯 Internship Task Alignment](#-internship-task-alignment)
+- [🏗️ Architecture](#️-architecture)
+- [🧰 Tech Stack](#-tech-stack)
+- [👤 Authentication & Role Isolation](#-authentication--role-isolation)
+- [🔐 Test Accounts](#-test-accounts)
+- [🔄 Strict Session Lifecycle](#-strict-session-lifecycle)
+- [📅 Scheduling & Double-Booking Prevention](#-scheduling--double-booking-prevention)
+- [📝 Live Notes & Debounced Autosave](#-live-notes--debounced-autosave)
+- [🤖 AI Integration & Prompts](#-ai-integration--prompts)
+- [🗄️ Database Schema](#️-database-schema)
+- [✉️ Email System](#️-email-system)
+- [📁 Project Structure](#-project-structure)
+- [🔌 API Overview](#-api-overview)
+- [🖥️ Frontend Routes](#️-frontend-routes)
+- [⚙️ Environment Variables](#️-environment-variables)
+- [🚀 Local Development](#-local-development)
+- [☁️ Deployment](#️-deployment)
+- [🛡️ Security & Data Isolation](#️-security--data-isolation)
+- [🧪 Validation Rules at a Glance](#-validation-rules-at-a-glance)
+- [📋 Evaluation Mapping](#-evaluation-mapping)
+- [📌 Project Status](#-project-status)
+- [👨‍💻 Author](#-author)
+- [🔮 What I Would Build Next If I Had Another Day](#-what-i-would-build-next-if-i-had-another-day)
+
+---
+
 Mentora is a full-stack EdTech platform for tutors to manage students,
 schedule classes, run live sessions, capture notes with debounced
 autosave, and use AI to prepare and review lessons. Students get a
