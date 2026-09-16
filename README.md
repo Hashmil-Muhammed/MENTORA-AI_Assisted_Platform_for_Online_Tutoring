@@ -1,6 +1,6 @@
 
 
-https://github.com/user-attachments/assets/dbdfbaa6-6178-4f2b-b671-307893ed276a
+
 
 <p align="center">
   <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=ff5734,ff8a65,ff5734&height=180&section=header&text=Mentora&fontSize=60&fontColor=ffffff&animation=twinkling&fontAlignY=32&desc=AI%20Powered%20Tutoring%20Platform&descAlignY=62&descSize=16" alt="Mentora Banner" />
@@ -40,7 +40,7 @@ https://github.com/user-attachments/assets/dbdfbaa6-6178-4f2b-b671-307893ed276a
 
 ### 🎥 Project Working Demo
 
-*(Demo video coming soon...)*
+[*(Demo video coming soon...)*](https://github.com/user-attachments/assets/dbdfbaa6-6178-4f2b-b671-307893ed276a)
 
 ---
 
