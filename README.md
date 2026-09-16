@@ -22,9 +22,9 @@
   <a href="https://www.prisma.io/"><img src="https://img.shields.io/badge/Prisma-2D3748?style=flat-square&logo=prisma&logoColor=white" alt="Prisma" /></a>
   <a href="https://mentora-live.vercel.app/"><img src="https://img.shields.io/badge/Deployed_on-Vercel-000000?style=flat-square&logo=vercel&logoColor=white" alt="Deployed on Vercel" /></a>
 </p>
-
+<p align="center">
 ###  **Live Web Application:** [https://mentora-live.vercel.app//)
-
+</p>
 <p align="center">
   <strong>Mentora</strong> is a comprehensive tutoring management platform that leverages <strong>AI-driven features</strong> for session planning, note taking, and performance reviews, ensuring a seamless experience for both tutors and students.
 </p>
