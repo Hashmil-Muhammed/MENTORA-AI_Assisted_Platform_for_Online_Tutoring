@@ -717,7 +717,7 @@ URL or refactor it to a Vite environment variable such as
 ### 1. Clone
 
 ``` bash
-git clone [[https://github.com/Hashmil-Muhammed/Mentora.git]()](https://github.com/Hashmil-Muhammed/MENTORA-AI_Assisted_Platform_for_Online_Tutoring)
+git clone https://github.com/Hashmil-Muhammed/MENTORA-AI_Assisted_Platform_for_Online_Tutoring.git
 cd Mentora
 ```
 
