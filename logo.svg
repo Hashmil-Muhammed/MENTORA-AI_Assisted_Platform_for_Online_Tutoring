@@ -1,4 +1,3 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
-  <rect width="100" height="100" fill="#151313" rx="20" />
   <text x="50" y="70" font-family="'Kodchasan', sans-serif, system-ui" font-weight="900" font-size="60" text-anchor="middle" fill="white">M<tspan fill="#ff5734">.</tspan></text>
 </svg>
