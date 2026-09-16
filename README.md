@@ -23,6 +23,10 @@
   <a href="https://mentora-live.vercel.app/"><img src="https://img.shields.io/badge/Deployed_on-Vercel-000000?style=flat-square&logo=vercel&logoColor=white" alt="Deployed on Vercel" /></a>
 </p>
 
+<h3 align="center">
+  <strong>Live Web Application:</strong> <a href="https://mentora-live.vercel.app/">https://mentora-live.vercel.app/</a>
+</h3>
+
 <p align="center">
   <strong>Mentora</strong> is a comprehensive tutoring management platform that leverages <strong>AI-driven features</strong> for session planning, note taking, and performance reviews, ensuring a seamless experience for both tutors and students.
 </p>
