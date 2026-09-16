@@ -1,9 +1,13 @@
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=ff5734,ff8a65,ff5734&height=180&section=header&text=Mentora&fontSize=60&fontColor=ffffff&animation=twinkling&fontAlignY=32&desc=AI%20Powered%20Tutoring%20Platform&descAlignY=62&descSize=16" alt="Mentora Banner" />
+</p>
 <h1 align="center">
-  <img src="https://img.shields.io/badge/Mentora-Intelligent%20Tutoring%20Platform-ff5734?style=for-the-badge&logo=react&logoColor=white" alt="Mentora" />
-  <br><br>
   <img src="./logo.svg" alt="Mentora Logo" width="120" />
   <br>
-  🧠 Mentora
+  Mentora
+  <br>
+  <br>
+  <img src="https://img.shields.io/badge/Mentora-Intelligent%20Tutoring%20Platform-ff5734?style=for-the-badge&logo=react&logoColor=white" alt="Mentora" />
 </h1>
 
 <h3 align="center"><em>An AI-Powered Tutoring and Session Management Platform</em></h3>
@@ -25,9 +29,6 @@
 
 <hr />
 
-<p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=ff5734,ff8a65,ff5734&height=180&section=header&text=Mentora&fontSize=60&fontColor=ffffff&animation=twinkling&fontAlignY=32&desc=AI%20Powered%20Tutoring%20Platform&descAlignY=62&descSize=16" alt="Mentora Banner" />
-</p>
 
 ### 🎥 Project Working Demo
 
