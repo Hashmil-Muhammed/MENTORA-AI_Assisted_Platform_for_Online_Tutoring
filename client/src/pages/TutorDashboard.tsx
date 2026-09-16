@@ -435,26 +435,6 @@ const TutorDashboard: React.FC = () => {
     }
   };
 
-  const isScheduleFormValid =
-    newSession.studentId !== '' &&
-    newSession.topic.trim() !== '' &&
-    newSession.startTime !== '' &&
-    newSession.endTime !== '' &&
-    (
-      newSession.classMode === '' ||
-      (newSession.classMode === 'VIDEO_CALL' && newSession.classAssetLink.trim() !== '') ||
-      ((newSession.classMode === 'RECORDING' || newSession.classMode === 'NOTES') && newSession.classAssetFile !== null)
-    );
-
-  const isStudentFormValid =
-    newStudent.name.trim() !== '' &&
-    newStudent.email.trim() !== '' &&
-    (editStudentId ? true : newStudent.password.trim() !== '') &&
-    newStudent.subject.trim() !== '' &&
-    newStudent.level.trim() !== '' &&
-    newStudent.learningGoals.trim() !== '' &&
-    newStudent.weakAreas.trim() !== '' &&
-    newStudent.gender.trim() !== '';
 
   const handleDeleteSession = async (id: string) => {
     if (!window.confirm("Are you sure you want to delete this scheduled session?")) return;
