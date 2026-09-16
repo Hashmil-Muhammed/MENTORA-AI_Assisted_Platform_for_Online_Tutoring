@@ -1,7 +1,32 @@
-# 🎓 Mentora
+<div align="center">
 
-> **AI-assisted session management for one-to-one online tutoring**
+<img src="./logo.svg" alt="Mentora Logo" width="120" />
 
+# 🧠 Mentora
+### *An AI-Powered Tutoring and Session Management Platform*
+
+[![React](https://img.shields.io/badge/React_19-61DAFB?style=flat-square&logo=react&logoColor=black)](https://react.dev/)
+[![Vite](https://img.shields.io/badge/Vite_7-646CFF?style=flat-square&logo=vite&logoColor=white)](https://vitejs.dev/)
+[![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=node.js&logoColor=white)](https://nodejs.org/)
+[![Express](https://img.shields.io/badge/Express.js-000000?style=flat-square&logo=express&logoColor=white)](https://expressjs.com/)
+[![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS_v4-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+[![SQLite](https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white)](https://www.sqlite.org/)
+[![Prisma](https://img.shields.io/badge/Prisma-2D3748?style=flat-square&logo=prisma&logoColor=white)](https://www.prisma.io/)
+[![Deployed on Vercel](https://img.shields.io/badge/Deployed_on-Vercel-000000?style=flat-square&logo=vercel&logoColor=white)](https://mentora-live.vercel.app/)
+
+<br/>
+
+> **Mentora** is a comprehensive tutoring management platform that leverages **AI-driven features** for session planning, note taking, and performance reviews, ensuring a seamless experience for both tutors and students.
+
+<br/>
+
+---
+
+</div>
+
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=15,13,13&height=180&section=header&text=Mentora&fontSize=60&fontColor=ff5734&animation=twinkling&fontAlignY=32&desc=AI%20Powered%20Tutoring%20Platform&descAlignY=62&descSize=16" />
+</p>
 Mentora is a full-stack EdTech platform for tutors to manage students,
 schedule classes, run live sessions, capture notes with debounced
 autosave, and use AI to prepare and review lessons. Students get a
