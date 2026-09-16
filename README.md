@@ -717,7 +717,7 @@ URL or refactor it to a Vite environment variable such as
 ### 1. Clone
 
 ``` bash
-git clone https://github.com/Hashmil-Muhammed/Mentora.git
+git clone [[https://github.com/Hashmil-Muhammed/Mentora.git]()](https://github.com/Hashmil-Muhammed/MENTORA-AI_Assisted_Platform_for_Online_Tutoring)
 cd Mentora
 ```
 
@@ -911,7 +911,7 @@ is incomplete.
 **Hashmil Muhammed**
 
 -   GitHub: https://github.com/Hashmil-Muhammed
--   Mentora: https://github.com/Hashmil-Muhammed/Mentora
+-   Mentora: [https://github.com/Hashmil-Muhammed/Mentora](https://github.com/Hashmil-Muhammed/MENTORA-AI_Assisted_Platform_for_Online_Tutoring)
 
 
 
