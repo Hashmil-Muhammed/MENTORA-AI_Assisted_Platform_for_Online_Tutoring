@@ -50,7 +50,7 @@ export const sendSessionEmail = async (
   const htmlContent = `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px; border: 1px solid #e2e8f0; border-radius: 16px; background-color: #ffffff;">
       <div style="text-align: center; margin-bottom: 20px;">
-        <h2 style="color: #ff5734; margin: 0; font-size: 24px;">🎓 TutorFlow - Class Scheduled!</h2>
+        <h2 style="color: #ff5734; margin: 0; font-size: 24px;">🎓 Mentora - Class Scheduled!</h2>
         <p style="color: #64748b; font-size: 14px; margin-top: 4px;">A new lesson has been planned for you</p>
       </div>
 
@@ -96,7 +96,7 @@ export const sendSessionEmail = async (
   try {
     const transporter = getTransporter();
     const info = await transporter.sendMail({
-      from: `"TutorFlow" <${process.env.EMAIL_USER}>`,
+      from: `"Mentora" <${process.env.EMAIL_USER}>`,
       to: toEmail,
       subject: `📚 Scheduled Class: ${sessionDetails.topic}`,
       html: htmlContent,
@@ -126,9 +126,9 @@ export const sendWelcomeStudentEmail = async (opts: {
 
   const mailBody = `Hello ${opts.name},
 
-Welcome to TutorFlow! 🎓
+Welcome to Mentora! 🎓
 
-Your tutor has created a student account for you on TutorFlow.
+Your tutor has created a student account for you on Mentora.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
         YOUR TUTOR DETAILS
@@ -154,17 +154,17 @@ Weak Areas        : ${opts.weakAreas}
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-You can now log in to TutorFlow using the email and password above.
+You can now log in to Mentora using the email and password above.
 Please change your password after your first login.
 
 Best regards,
-TutorFlow Team`;
+Mentora Team`;
 
   const transporter = getTransporter();
   const info = await transporter.sendMail({
-    from: `"TutorFlow" <${process.env.EMAIL_USER}>`,
+    from: `"Mentora" <${process.env.EMAIL_USER}>`,
     to: opts.email,
-    subject: 'Welcome to TutorFlow - Your Student Account Details',
+    subject: 'Welcome to Mentora - Your Student Account Details',
     text: mailBody,
   });
 

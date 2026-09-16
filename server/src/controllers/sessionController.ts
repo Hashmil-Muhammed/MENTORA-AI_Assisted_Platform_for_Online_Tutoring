@@ -76,7 +76,7 @@ export const scheduleSession = async (req: AuthRequest, res: Response) => {
 
     // Send email notification
     const joinLink = `http://localhost:5174/session/${session.id}`;
-    await sendSessionEmail(
+    sendSessionEmail(
       studentProfile.user.email,
       studentProfile.user.name,
       {
@@ -91,7 +91,7 @@ export const scheduleSession = async (req: AuthRequest, res: Response) => {
         tutorEmail: tutorUser?.email || req.user?.email,
         assetUrl: session.classAssetUrl
       }
-    );
+    ).catch(e => console.error('[Mailer] Background email send failed:', e));
 
     res.status(201).json({ message: 'Session scheduled successfully', session });
   } catch (error) {

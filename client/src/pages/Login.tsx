@@ -104,8 +104,9 @@ const Login: React.FC = () => {
           <a href="#" className="hover:text-[#F1714B] transition-colors"></a>
           <a href="#" className="hover:text-[#F1714B] transition-colors"></a>
         </div>
-        <div className="font-kodchasan font-black text-2xl tracking-tighter text-[#1C1D21] lg:absolute lg:left-1/2 lg:-translate-x-1/2 mt-4 md:mt-0">
-          <h1 className="text-4xl font-bold text-[#F1714B] font-kodchasan tracking-tight">TutorFlow</h1>
+        <div className="font-kodchasan font-black text-2xl tracking-tighter text-[#1C1D21] lg:absolute lg:left-1/2 lg:-translate-x-1/2 mt-4 md:mt-0 flex items-center gap-3">
+
+          <h1 className="text-4xl font-bold text-[#F1714B] font-kodchasan tracking-tight">Mentora</h1>
         </div>
       </nav>
 
@@ -167,7 +168,7 @@ const Login: React.FC = () => {
             }}
             className="bg-[#F1714B] text-white px-9 py-4 rounded-full font-bold text-[15px] shadow-[0_5px_0_#B83B1A] active:translate-y-[5px] active:shadow-none transition-all cursor-pointer"
           >
-            Join TutorFlow
+            Join Mentora
           </button>
         </div>
 
@@ -342,7 +343,7 @@ const Login: React.FC = () => {
                           type="email"
                           required
                           className="w-full px-5 py-4 bg-slate-50 hover:bg-slate-100 focus:bg-white rounded-2xl text-[#1C1D21] font-bold text-sm transition-all outline-none border-2 border-transparent focus:border-[#F1714B] focus:ring-4 focus:ring-[#F1714B]/10 placeholder:text-slate-400 placeholder:font-semibold"
-                          placeholder={activeTab === 'tutor' ? "tutor@tutorflow.com" : "student@tutorflow.com"}
+                          placeholder={activeTab === 'tutor' ? "tutor@mentora.com" : "student@mentora.com"}
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
                         />
@@ -447,7 +448,7 @@ const Login: React.FC = () => {
             <div className="flex items-center justify-center relative w-full h-full min-h-[580px] overflow-visible">
               <img
                 src="/illustrations/image2.png"
-                alt="TutorFlow Feature Illustration"
+                alt="Mentora Feature Illustration"
                 className="w-full min-w-[550px] max-w-[800px] lg:scale-125 h-auto object-contain select-none pointer-events-none drop-shadow-md transition-transform duration-300"
               />
             </div>
@@ -457,7 +458,7 @@ const Login: React.FC = () => {
       </section>
 
       {/* ── FOOTER (Placed explicitly at the very end of the page wrapper) ── */}
-      {/* <footer className="w-full relative z-20 mt-auto bg-[#cff2e9] pb-6 px-6 md:px-12">
+      <footer className="w-full relative z-20 mt-auto bg-[#cff2e9] pb-6 px-6 md:px-12">
         <div className="max-w-7xl mx-auto pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-[11px] font-bold text-slate-600 uppercase tracking-widest text-center sm:text-left">
             © 2026 Hashmil Muhammed <span className="hidden sm:inline mx-1 text-slate-400">•</span> All rights reserved
@@ -468,7 +469,7 @@ const Login: React.FC = () => {
             className="h-7 md:h-9 w-auto object-contain hover:opacity-100 transition-opacity cursor-pointer"
           />
         </div>
-      </footer> */}
+      </footer>
     </div>
   );
 };

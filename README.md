@@ -1,14 +1,14 @@
-# 🎓 TutorFlow
+# 🎓 Mentora
 
 > **AI-assisted session management for one-to-one online tutoring**
 
-TutorFlow is a full-stack EdTech platform for tutors to manage students,
+Mentora is a full-stack EdTech platform for tutors to manage students,
 schedule classes, run live sessions, capture notes with debounced
 autosave, and use AI to prepare and review lessons. Students get a
 focused portal for their own upcoming sessions, completed-session notes,
 and AI-generated homework.
 
-Built for the **TutorFlow Web Developer Internship Task**, the project
+Built for the **Mentora Web Developer Internship Task**, the project
 prioritizes reliable end-to-end flows, server-side access isolation,
 strict session lifecycle rules, personalized AI, and a clear separation
 between frontend and backend responsibilities.
@@ -165,7 +165,7 @@ stack and Express/Prisma/Gemini/JWT/Multer/Nodemailer backend stack.
 
 ## 👤 Authentication & Role Isolation
 
-TutorFlow uses JWT authentication. On login, the server verifies the
+Mentora uses JWT authentication. On login, the server verifies the
 bcrypt password and signs a token containing the user's ID and role with
 a one-day expiry. The client stores the token and Axios adds it to
 protected requests.
@@ -305,7 +305,7 @@ Editing notes after `COMPLETED`. - Editing notes after `AI_REVIEWED`.
 
 ## 🤖 AI Integration & Prompts
 
-TutorFlow uses Google Gemini through `@google/genai`. The AI controller
+Mentora uses Google Gemini through `@google/genai`. The AI controller
 explicitly loads the student profile and recent session context rather
 than sending generic prompts. Lesson-plan and review responses request
 `application/json` so the UI can consume structured data.
@@ -407,7 +407,7 @@ frontend displays a failure message/loading state.
 
 ## 🗄️ Database Schema
 
-TutorFlow uses **SQLite + Prisma** with three core models: `User`,
+Mentora uses **SQLite + Prisma** with three core models: `User`,
 `StudentProfile`, and `Session`. 
 
 ``` mermaid
@@ -488,7 +488,7 @@ Button to open the session
 
 ### Student welcome email
 
-When a tutor creates a student account, TutorFlow can send the student's
+When a tutor creates a student account, Mentora can send the student's
 login information together with tutor details and the student's
 educational profile.
 
@@ -501,7 +501,7 @@ Gmail transporter at startup, and sends HTML/text email templates.
 ## 📁 Project Structure
 
 ``` text
-TutorFlow/
+Mentora/
 │
 ├── client/
 │   ├── public/
@@ -646,8 +646,8 @@ URL or refactor it to a Vite environment variable such as
 ### 1. Clone
 
 ``` bash
-git clone https://github.com/Hashmil-Muhammed/TutorFlow.git
-cd TutorFlow
+git clone https://github.com/Hashmil-Muhammed/Mentora.git
+cd Mentora
 ```
 
 ### 2. Backend
@@ -779,7 +779,7 @@ Progress Summary
 ## 📋 Evaluation Mapping
 ### 📊 Evaluation Criteria
 
-| Area | Weight | TutorFlow Focus |
+| Area | Weight | Mentora Focus |
 |---|---:|---|
 | **Login & Access** | 15 | JWT, roles, ownership checks |
 | **Session States** | 15 | Strict lifecycle + clash prevention |
@@ -840,7 +840,7 @@ is incomplete.
 **Hashmil Muhammed**
 
 -   GitHub: https://github.com/Hashmil-Muhammed
--   TutorFlow: https://github.com/Hashmil-Muhammed/TutorFlow
+-   Mentora: https://github.com/Hashmil-Muhammed/Mentora
 
 
 

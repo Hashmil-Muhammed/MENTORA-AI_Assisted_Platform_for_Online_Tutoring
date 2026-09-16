@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: tutorflow-server
+    name: mentora-server
     env: node
     rootDir: server
     buildCommand: npm install && npx prisma generate

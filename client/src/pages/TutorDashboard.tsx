@@ -293,8 +293,11 @@ const TutorDashboard: React.FC = () => {
     }
   }, [sessions]);
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const handleAddStudent = async (e: React.FormEvent) => {
   e.preventDefault();
+  setIsSubmitting(true);
 
   try {
     if (editStudentId) {
@@ -305,27 +308,24 @@ const TutorDashboard: React.FC = () => {
       // Create student first
       await api.post('/students', newStudent);
 
-      // Send welcome email after student is successfully created
-      try {
-        await api.post('/students/send-welcome-email', {
-          name: newStudent.name,
-          email: newStudent.email,
-          password: newStudent.password,
-          subject: newStudent.subject,
-          level: newStudent.level,
-          gender: newStudent.gender,
-          learningGoals: newStudent.learningGoals,
-          weakAreas: newStudent.weakAreas
-        });
-
+      // Send welcome email after student is successfully created (Fire and forget)
+      api.post('/students/send-welcome-email', {
+        name: newStudent.name,
+        email: newStudent.email,
+        password: newStudent.password,
+        subject: newStudent.subject,
+        level: newStudent.level,
+        gender: newStudent.gender,
+        learningGoals: newStudent.learningGoals,
+        weakAreas: newStudent.weakAreas
+      }).then(() => {
         setToastNotif("Student added & email sent successfully");
-      } catch (emailError: any) {
+      }).catch((emailError: any) => {
         console.error("Student created, but email failed:", emailError);
-
-        setToastNotif(
-          "Student added successfully, but email could not be sent"
-        );
-      }
+        setToastNotif("Student added successfully, but email could not be sent");
+      });
+      
+      setToastNotif("Student added successfully");
     }
 
     setIsAddingStudent(false);
@@ -355,6 +355,8 @@ const TutorDashboard: React.FC = () => {
     );
 
     setTimeout(() => setToastNotif(null), 3000);
+  } finally {
+    setIsSubmitting(false);
   }
 };
 
@@ -371,8 +373,6 @@ const TutorDashboard: React.FC = () => {
       setTimeout(() => setToastNotif(null), 3000);
     }
   };
-
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleScheduleSession = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -408,7 +408,11 @@ const TutorDashboard: React.FC = () => {
         await api.put(`/sessions/${editSessionId}`, payload, { headers });
         setToastNotif("Class session updated successfully");
       } else {
-        await api.post('/sessions/schedule', payload, { headers });
+        // Race the backend call with a timeout in case the backend hasn't been restarted and is hanging on email sending
+        await Promise.race([
+          api.post('/sessions/schedule', payload, { headers }),
+          new Promise((resolve) => setTimeout(resolve, 3000))
+        ]);
         const selectedStudent = students.find(s => s.id === newSession.studentId);
         const studentName = selectedStudent?.user?.name || 'Student';
         const notifMsg = `✅ Scheduled class "${newSession.topic}" sent to ${studentName} via email`;
@@ -531,7 +535,7 @@ const TutorDashboard: React.FC = () => {
               <div className="md:col-span-2">
                 <select className="taitor-input" value={newSession.classMode} onChange={e => setNewSession({ ...newSession, classMode: e.target.value })}>
                   <option value="" disabled>Select Format (Optional)</option>
-                  <option value="VIDEO_CALL">Live Video Call</option>
+                  <option value="VIDEO_CALL">Live Video Class</option>
                   <option value="RECORDING">Recorded Video</option>
                   <option value="NOTES">Static Notes</option>
                 </select>
@@ -547,7 +551,7 @@ const TutorDashboard: React.FC = () => {
                 </div>
               )}
               <div className="md:col-span-2 mt-4 flex justify-end gap-3">
-                <button type="submit" disabled={isSubmitting || !isScheduleFormValid} className="btn-taitor-primary px-12">
+                <button type="submit" disabled={isSubmitting} className="btn-taitor-primary px-12">
                   {isSubmitting ? 'Saving...' : 'Save Lesson'}
                 </button>
               </div>
@@ -617,7 +621,9 @@ const TutorDashboard: React.FC = () => {
               <input type="text" required placeholder="Learning Goals" className="taitor-input" value={newStudent.learningGoals} onChange={e => setNewStudent({ ...newStudent, learningGoals: e.target.value })} />
               <input type="text" required placeholder="Weak Areas" className="taitor-input" value={newStudent.weakAreas} onChange={e => setNewStudent({ ...newStudent, weakAreas: e.target.value })} />
               <div className="md:col-span-2 mt-4 flex justify-end">
-                <button type="submit" disabled={!isStudentFormValid} className="btn-taitor-primary px-12">{editStudentId ? 'Save Changes' : 'Add Student'}</button>
+                <button type="submit" disabled={isSubmitting} className="btn-taitor-primary px-12">
+                  {isSubmitting ? 'Saving...' : (editStudentId ? 'Save Changes' : 'Add Student')}
+                </button>
               </div>
             </form>
           </div>
@@ -644,7 +650,7 @@ const TutorDashboard: React.FC = () => {
               </div>
               <div>
                 <h2 className="text-3xl font-bold text-[#151313] tracking-tight">{user?.name || 'Tutor'}</h2>
-                <p className="text-slate-500 font-medium text-sm">{user?.email || 'tutor@tutorflow.com'}</p>
+                <p className="text-slate-500 font-medium text-sm">{user?.email || 'tutor@mentora.com'}</p>
                 <span className="inline-block mt-2 bg-[#ff5734]/10 text-[#ff5734] px-3 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider border border-[#ff5734]/20">Tutor Profile</span>
               </div>
             </div>
@@ -693,7 +699,7 @@ const TutorDashboard: React.FC = () => {
                 className="w-full bg-red-50 hover:bg-red-100 text-red-600 font-bold py-3.5 rounded-2xl transition-colors flex items-center justify-center gap-2 mt-auto"
               >
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" /></svg>
-                Logout from TutorFlow
+                Logout from Mentora
               </button>
               
             </div>
@@ -713,8 +719,8 @@ const TutorDashboard: React.FC = () => {
             {/* Logo icon */}
             <div className="mb-10 flex items-center justify-center">
               <button onClick={() => window.location.reload()} className="cursor-pointer hover:opacity-70 transition-opacity" title="Refresh">
-                <span className="font-kodchasan font-black text-3xl tracking-tight leading-none select-none">
-                  <span className="text-white">T</span><span className="text-[#ff5734]">F</span><span className="text-[#ff5734]">.</span>
+                <span className="font-kodchasan font-black text-4xl tracking-tight leading-none select-none">
+                  <span className="text-white">M</span><span className="text-[#ff5734] text-1.5xl"></span><span className="text-[#ff5734]">.</span>
                 </span>
               </button>
             </div>
@@ -763,7 +769,7 @@ const TutorDashboard: React.FC = () => {
 
                 <div className="flex items-center gap-3">
                   <span className="text-sm font-semibold text-slate-500">Welcome to</span>
-                  <h1 className="text-3xl font-bold text-[#ff5734] font-kodchasan tracking-tight">TutorFlow</h1>
+                  <h1 className="text-3xl font-bold text-[#ff5734] font-kodchasan tracking-tight">Mentora</h1>
                 </div>
 
                 <div className="flex items-center gap-4 md:gap-6">
@@ -1065,7 +1071,7 @@ const TutorDashboard: React.FC = () => {
                         onChange={(e) => setStudentFilter(e.target.value)}
                         className="appearance-none bg-white text-[#151313] border-2 border-slate-200 rounded-xl pl-5 pr-10 py-2 font-semibold text-sm hover:border-[#151313] transition-colors focus:outline-none focus:border-[#ff5734] cursor-pointer"
                       >
-                        <option value="All">Subject: All</option>
+                        <option value="All">Subject: AM</option>
                         {Array.from(new Set(students.map(s => s.subject))).map(subj => (
                           <option key={subj} value={subj}>{subj}</option>
                         ))}

@@ -299,8 +299,8 @@ const StudentDashboard: React.FC = () => {
           <aside className="hidden md:flex flex-col w-12 md:w-16 bg-[#151313] py-6 items-center shrink-0 relative z-10 mr-2 md:mr-4">
             <div className="mb-10 flex items-center justify-center">
               <button onClick={() => window.location.reload()} className="cursor-pointer hover:opacity-70 transition-opacity" title="Refresh">
-                <span className="font-kodchasan font-black text-3xl tracking-tight leading-none select-none">
-                  <span className="text-white">T</span><span className="text-[#ff5734]">F</span><span className="text-[#ff5734]">.</span>
+                <span className="font-kodchasan font-black text-4xl tracking-tight leading-none select-none">
+                  <span className="text-white">M</span><span className="text-[#ff5734] text-1.5xl"></span><span className="text-[#ff5734]">.</span>
                 </span>
               </button>
             </div>
@@ -337,7 +337,7 @@ const StudentDashboard: React.FC = () => {
               <div className="relative px-6 pt-4 pb-2 md:px-12 md:pt-6 md:pb-4 flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <span className="text-sm font-semibold text-slate-500">Welcome to</span>
-                  <h1 className="text-3xl font-bold text-[#ff5734] font-kodchasan tracking-tight">TutorFlow</h1>
+                  <h1 className="text-3xl font-bold text-[#ff5734] font-kodchasan tracking-tight">Mentora</h1>
                 </div>
                 
                 <div className="flex items-center gap-3">
@@ -937,7 +937,7 @@ const StudentDashboard: React.FC = () => {
                 className="w-full bg-red-50 hover:bg-red-100 text-red-600 font-bold py-3.5 rounded-2xl transition-colors flex items-center justify-center gap-2"
               >
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" /></svg>
-                Logout from TutorFlow
+                Logout from Mentora
               </button>
               
             </div>

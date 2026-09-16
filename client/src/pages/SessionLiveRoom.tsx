@@ -70,7 +70,7 @@ const SessionLiveRoom: React.FC = () => {
     const h = Math.floor(totalSec / 3600);
     const m = Math.floor((totalSec % 3600) / 60);
     const s = totalSec % 60;
-    const fmt = `${h > 0 ? h.toString().padStart(2,"0")+":" : ""}${m.toString().padStart(2,"0")}:${s.toString().padStart(2,"0")}`;
+    const fmt = `${h > 0 ? h.toString().padStart(2, "0") + ":" : ""}${m.toString().padStart(2, "0")}:${s.toString().padStart(2, "0")}`;
     return isNeg ? `-${fmt}` : fmt;
   };
 
@@ -115,7 +115,10 @@ const SessionLiveRoom: React.FC = () => {
     <div className="flex w-full min-h-screen bg-[#151313] items-center justify-center">
       <div className="text-center">
         <div className="text-5xl font-kodchasan font-black mb-4">
-          <span className="text-white">T</span><span className="text-[#ff5734]">F</span><span className="text-[#ff5734]">.</span>
+          <span className="font-kodchasan font-black text-4xl tracking-tight leading-none select-none">
+            <span className="text-white">MENTORA</span><span className="text-[#ff5734] text-1.5xl">.</span>
+          </span>
+
         </div>
         <p className="text-slate-400 font-semibold animate-pulse tracking-widest text-xs uppercase">Loading session...</p>
       </div>
@@ -128,15 +131,14 @@ const SessionLiveRoom: React.FC = () => {
 
   const statusBadgeCls = status === "SCHEDULED" ? "text-[#d97706]" :
     status === "IN_PROGRESS" ? "text-emerald-600" :
-    status === "AI_REVIEWED" ? "text-purple-600" : "text-slate-500 border-slate-200";
+      status === "AI_REVIEWED" ? "text-purple-600" : "text-slate-500 border-slate-200";
 
   const navBtnCls = (panel: string) => `w-full aspect-square rounded-[1rem] flex items-center justify-center transition-all ${activePanel === panel ? "bg-[#fccc42] text-black shadow-lg scale-110" : "text-slate-400 hover:text-white hover:bg-white/5"}`;
-  const saveTagCls = `flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest transition-all ${
-  isSaving 
-    ? "text-amber-600" 
-    : notes !== savedNotes 
-      ? "text-slate-400" 
-      : "text-emerald-500"}`;
+  const saveTagCls = `flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest transition-all ${isSaving
+      ? "text-amber-600"
+      : notes !== savedNotes
+        ? "text-slate-400"
+        : "text-emerald-500"}`;
 
   return (
     <div className="flex w-full min-h-screen bg-[#151313]">
@@ -146,9 +148,9 @@ const SessionLiveRoom: React.FC = () => {
         <aside className="hidden md:flex flex-col w-12 md:w-16 bg-[#151313] py-6 items-center shrink-0 relative z-10 mr-2 md:mr-3">
           <div className="mb-10 flex items-center justify-center">
             <button onClick={() => navigate("/tutor-dashboard")} className="cursor-pointer hover:opacity-70 transition-opacity" title="Back">
-              <span className="font-kodchasan font-black text-3xl tracking-tight leading-none select-none">
-                <span className="text-white">T</span><span className="text-[#ff5734]">F</span><span className="text-[#ff5734]">.</span>
-              </span>
+                <span className="font-kodchasan font-black text-4xl tracking-tight leading-none select-none">
+                  <span className="text-white">M</span><span className="text-[#ff5734] text-1.5xl"></span><span className="text-[#ff5734]">.</span>
+                </span>
             </button>
           </div>
 
@@ -186,51 +188,51 @@ const SessionLiveRoom: React.FC = () => {
 
           {/* ── HEADER SECTION ── */}
           <div className="relative px-6 py-5 md:px-10 md:py-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 md:gap-6 bg-white border-b border-slate-200/60 z-40 shrink-0">
-             
-             {/* Left Side: Back + Title */}
-             <div className="flex items-center gap-4 md:gap-5 min-w-0 w-full md:w-auto">
-               <button onClick={() => navigate("/tutor-dashboard")} title="Back to Dashboard" className="flex items-center justify-center w-10 h-10 bg-white border border-slate-200 hover:border-slate-300 text-slate-500 rounded-full transition-all shrink-0 shadow-sm group">
-                  <svg className="w-4 h-4 transition-transform group-hover:-translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
-               </button>
-               
-               <div className="h-8 w-px bg-slate-200 hidden sm:block shrink-0" />
-               
-               <div className="min-w-0 flex-1">
-                  {/* <div className="flex items-center gap-2 mb-0.5">
+
+            {/* Left Side: Back + Title */}
+            <div className="flex items-center gap-4 md:gap-5 min-w-0 w-full md:w-auto">
+              <button onClick={() => navigate("/tutor-dashboard")} title="Back to Dashboard" className="flex items-center justify-center w-10 h-10 bg-white border border-slate-200 hover:border-slate-300 text-slate-500 rounded-full transition-all shrink-0 shadow-sm group">
+                <svg className="w-4 h-4 transition-transform group-hover:-translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
+              </button>
+
+              <div className="h-8 w-px bg-slate-200 hidden sm:block shrink-0" />
+
+              <div className="min-w-0 flex-1">
+                {/* <div className="flex items-center gap-2 mb-0.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#ff5734]"></span>
                     <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest block">Live Room</span>
                   </div> */}
-                  <h1 className="font-kodchasan font-bold text-[#151313] text-xl md:text-2xl truncate leading-tight">{session.topic}</h1>
-               </div>
-             </div>
+                <h1 className="font-kodchasan font-bold text-[#151313] text-xl md:text-2xl truncate leading-tight">{session.topic}</h1>
+              </div>
+            </div>
 
-             {/* Right Side: Status + Actions */}
-             <div className="flex items-center gap-3 shrink-0 w-full md:w-auto overflow-x-auto no-scrollbar pb-1 md:pb-0">
-                <div className={`text-[11px] font-bold tracking-widest uppercase flex items-center gap-2 ${statusBadgeCls}`}>
-                   {status === "IN_PROGRESS" && <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />}
-                   {status.replace(/_/g, " ")}
+            {/* Right Side: Status + Actions */}
+            <div className="flex items-center gap-3 shrink-0 w-full md:w-auto overflow-x-auto no-scrollbar pb-1 md:pb-0">
+              <div className={`text-[11px] font-bold tracking-widest uppercase flex items-center gap-2 ${statusBadgeCls}`}>
+                {status === "IN_PROGRESS" && <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />}
+                {status.replace(/_/g, " ")}
+              </div>
+
+              {status === "IN_PROGRESS" && timeLeft !== null && (
+                <div className={`text-xs font-bold tracking-wider font-mono flex items-center gap-2 ${timeLeft > 0 ? "text-amber-700" : "text-red-600 animate-pulse"}`}>
+                  {timeLeft > 0 ? formatTimeLeft(timeLeft) : "TIME IS UP!"}
                 </div>
+              )}
 
-                {status === "IN_PROGRESS" && timeLeft !== null && (
-                  <div className={`text-xs font-bold tracking-wider font-mono flex items-center gap-2 ${timeLeft > 0 ? "text-amber-700" : "text-red-600 animate-pulse"}`}>
-                      {timeLeft > 0 ? formatTimeLeft(timeLeft) : "TIME IS UP!"}
-                  </div>
-                )}
+              {status === "SCHEDULED" && (
+                <button onClick={() => advanceState("IN_PROGRESS")} className="flex items-center gap-2 px-5 py-2 bg-[#10b981] hover:bg-[#059669] active:scale-95 text-white font-bold text-sm rounded-xl transition-all shadow-sm whitespace-nowrap ml-2">
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                  Start Class
+                </button>
+              )}
 
-                {status === "SCHEDULED" && (
-                   <button onClick={() => advanceState("IN_PROGRESS")} className="flex items-center gap-2 px-5 py-2 bg-[#10b981] hover:bg-[#059669] active:scale-95 text-white font-bold text-sm rounded-xl transition-all shadow-sm whitespace-nowrap ml-2">
-                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                      Start Class
-                   </button>
-                )}
-
-                {status === "IN_PROGRESS" && (
-                   <button onClick={() => advanceState("COMPLETED")} className="flex items-center gap-2 px-5 py-2 bg-red-50 hover:bg-red-100 active:scale-95 text-red-600 font-bold text-sm rounded-xl transition-all shadow-sm whitespace-nowrap border border-red-100 ml-2">
-                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 10h6v4H9z" /></svg>
-                      End Class
-                   </button>
-                )}
-             </div>
+              {status === "IN_PROGRESS" && (
+                <button onClick={() => advanceState("COMPLETED")} className="flex items-center gap-2 px-5 py-2 bg-red-50 hover:bg-red-100 active:scale-95 text-red-600 font-bold text-sm rounded-xl transition-all shadow-sm whitespace-nowrap border border-red-100 ml-2">
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 10h6v4H9z" /></svg>
+                  End Class
+                </button>
+              )}
+            </div>
           </div>
 
           {/* Panel Body */}
@@ -253,7 +255,7 @@ const SessionLiveRoom: React.FC = () => {
                       <p className="text-[9px] uppercase font-bold text-slate-400 tracking-wider truncate mt-0.5">{session.studentProfile?.subject}</p>
                     </div>
                   </div>
-                  
+
                   {/* Card 2: Duration */}
                   <div className="bg-white border border-slate-200/70 rounded-[1.5rem] p-4 shadow-sm flex items-center gap-4 transition-transform hover:-translate-y-0.5">
                     <div className="relative w-12 h-12 flex items-center justify-center shrink-0">
@@ -268,32 +270,32 @@ const SessionLiveRoom: React.FC = () => {
 
                   {/* Card 3: Start Time */}
                   <div className="bg-white border border-slate-200/70 rounded-[1.5rem] p-4 shadow-sm flex items-center gap-4 transition-transform hover:-translate-y-0.5">
-                     <div className="relative w-12 h-12 flex items-center justify-center shrink-0">
-                       <svg viewBox="0 0 100 100" className="absolute inset-0 w-full h-full text-[#bae6fd] fill-current transform rotate-[15deg]"><path d="M50 2.5l11.1 11.1 15.7-1.5 6.5 14.4 13.9 7.4-4.8 15 4.8 15-13.9 7.4-6.5 14.4-15.7-1.5L50 97.5l-11.1-11.1-15.7 1.5-6.5-14.4-13.9-7.4 4.8-15-4.8-15 13.9-7.4 6.5-14.4 15.7 1.5z" /></svg>
-                       <span className="relative z-10 text-xl drop-shadow-sm">⏰</span>
-                     </div>
-                     <div className="min-w-0">
-                       <h3 className="font-kodchasan font-bold text-[#151313] text-[15px] leading-tight truncate">{new Date(session.startTime).toLocaleTimeString([], { timeStyle: "short" })}</h3>
-                       <p className="text-[9px] uppercase font-bold text-slate-400 tracking-wider mt-0.5">Start Time</p>
-                     </div>
+                    <div className="relative w-12 h-12 flex items-center justify-center shrink-0">
+                      <svg viewBox="0 0 100 100" className="absolute inset-0 w-full h-full text-[#bae6fd] fill-current transform rotate-[15deg]"><path d="M50 2.5l11.1 11.1 15.7-1.5 6.5 14.4 13.9 7.4-4.8 15 4.8 15-13.9 7.4-6.5 14.4-15.7-1.5L50 97.5l-11.1-11.1-15.7 1.5-6.5-14.4-13.9-7.4 4.8-15-4.8-15 13.9-7.4 6.5-14.4 15.7 1.5z" /></svg>
+                      <span className="relative z-10 text-xl drop-shadow-sm">⏰</span>
+                    </div>
+                    <div className="min-w-0">
+                      <h3 className="font-kodchasan font-bold text-[#151313] text-[15px] leading-tight truncate">{new Date(session.startTime).toLocaleTimeString([], { timeStyle: "short" })}</h3>
+                      <p className="text-[9px] uppercase font-bold text-slate-400 tracking-wider mt-0.5">Start Time</p>
+                    </div>
                   </div>
 
                   {/* Card 4: Status */}
                   <div className="bg-white border border-slate-200/70 rounded-[1.5rem] p-4 shadow-sm flex items-center gap-4 transition-transform hover:-translate-y-0.5">
-                     <div className="relative w-12 h-12 flex items-center justify-center shrink-0">
-                       <svg viewBox="0 0 100 100" className={`absolute inset-0 w-full h-full fill-current transform -rotate-12 ${status === "IN_PROGRESS" ? "text-[#a7f3d0]" : isCompleted ? "text-[#e2e8f0]" : "text-[#fecaca]"}`}><path d="M50 2.5l11.1 11.1 15.7-1.5 6.5 14.4 13.9 7.4-4.8 15 4.8 15-13.9 7.4-6.5 14.4-15.7-1.5L50 97.5l-11.1-11.1-15.7 1.5-6.5-14.4-13.9-7.4 4.8-15-4.8-15 13.9-7.4 6.5-14.4 15.7 1.5z" /></svg>
-                       <span className="relative z-10 text-xl drop-shadow-sm">{status === "IN_PROGRESS" ? "🔥" : isCompleted ? "✅" : "📅"}</span>
-                     </div>
-                     <div className="min-w-0">
-                       <h3 className="font-kodchasan font-bold text-[#151313] text-[15px] leading-tight truncate">{status.replace(/_/g, " ")}</h3>
-                       {status === "IN_PROGRESS" && timeLeft !== null ? (
-                          <p className={`text-[9px] font-bold font-mono tracking-wider mt-0.5 ${timeLeft > 0 ? "text-amber-600" : "text-red-500 animate-pulse"}`}>
-                             {timeLeft > 0 ? formatTimeLeft(timeLeft) : "OVERTIME!"}
-                          </p>
-                       ) : (
-                          <p className="text-[9px] uppercase font-bold text-slate-400 tracking-wider mt-0.5">Status</p>
-                       )}
-                     </div>
+                    <div className="relative w-12 h-12 flex items-center justify-center shrink-0">
+                      <svg viewBox="0 0 100 100" className={`absolute inset-0 w-full h-full fill-current transform -rotate-12 ${status === "IN_PROGRESS" ? "text-[#a7f3d0]" : isCompleted ? "text-[#e2e8f0]" : "text-[#fecaca]"}`}><path d="M50 2.5l11.1 11.1 15.7-1.5 6.5 14.4 13.9 7.4-4.8 15 4.8 15-13.9 7.4-6.5 14.4-15.7-1.5L50 97.5l-11.1-11.1-15.7 1.5-6.5-14.4-13.9-7.4 4.8-15-4.8-15 13.9-7.4 6.5-14.4 15.7 1.5z" /></svg>
+                      <span className="relative z-10 text-xl drop-shadow-sm">{status === "IN_PROGRESS" ? "🔥" : isCompleted ? "✅" : "📅"}</span>
+                    </div>
+                    <div className="min-w-0">
+                      <h3 className="font-kodchasan font-bold text-[#151313] text-[15px] leading-tight truncate">{status.replace(/_/g, " ")}</h3>
+                      {status === "IN_PROGRESS" && timeLeft !== null ? (
+                        <p className={`text-[9px] font-bold font-mono tracking-wider mt-0.5 ${timeLeft > 0 ? "text-amber-600" : "text-red-500 animate-pulse"}`}>
+                          {timeLeft > 0 ? formatTimeLeft(timeLeft) : "OVERTIME!"}
+                        </p>
+                      ) : (
+                        <p className="text-[9px] uppercase font-bold text-slate-400 tracking-wider mt-0.5">Status</p>
+                      )}
+                    </div>
                   </div>
                 </div>
 
@@ -314,7 +316,7 @@ const SessionLiveRoom: React.FC = () => {
                     placeholder={status === "SCHEDULED" ? "▶ Start the class to begin typing notes..." : isCompleted ? "🔒 Session ended. Notes are locked." : "Start typing..."}
                     className={`flex-1 w-full px-6 py-2 bg-white border-none focus:ring-0 focus:outline-none resize-none text-[#151313] placeholder:text-slate-200 font-medium leading-relaxed text-[15px] no-scrollbar transition-colors ${status !== "IN_PROGRESS" ? "opacity-60 cursor-not-allowed" : ""}`}
                   />
-                  
+
                   <div className="px-6 py-5 flex items-center justify-between z-10">
                     <span className="text-[10px] text-slate-300 font-bold uppercase tracking-widest">{notes.length > 0 ? `${notes.split(/\s+/).filter(Boolean).length} WORDS` : "START TYPING..."}</span>
                     {session.classAssetUrl && (
@@ -335,7 +337,7 @@ const SessionLiveRoom: React.FC = () => {
 
                 {/* Session Details */}
                 <div className="bg-white border border-slate-200/70 rounded-[1.5rem] p-6 md:p-8 shadow-sm relative overflow-hidden transition-all hover:-translate-y-1">
-                  
+
                   {/* Header */}
                   <h4 className="font-kodchasan text-xl font-bold text-[#151313] mb-6 flex items-center gap-3">
                     <div className="relative w-10 h-10 flex items-center justify-center shrink-0">
@@ -350,7 +352,7 @@ const SessionLiveRoom: React.FC = () => {
                   </h4>
 
                   <div className="space-y-3">
-                    
+
                     {/* Topic */}
                     <div className="flex justify-between items-start bg-slate-50/50 p-4 rounded-2xl border border-slate-100 gap-4">
                       <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mt-0.5 shrink-0">Topic</span>
@@ -387,7 +389,7 @@ const SessionLiveRoom: React.FC = () => {
                       <div className="flex justify-between items-center bg-slate-50/50 p-4 rounded-2xl border border-slate-100 gap-4">
                         <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider shrink-0">Mode</span>
                         <span className="font-bold text-[#151313] text-xs text-right">
-                          {session.classMode === "VIDEO_CALL" ? "Live Video Call" : session.classMode === "RECORDING" ? "Recorded Video" : "Notes / Presentation"}
+                          {session.classMode === "VIDEO_CAll" ? "Live Video Call" : session.classMode === "RECORDING" ? "Recorded Video" : "Notes / Presentation"}
                         </span>
                       </div>
                     )}
@@ -405,7 +407,7 @@ const SessionLiveRoom: React.FC = () => {
                         </a>
                       </div>
                     )}
-                    
+
                     {/* Action Buttons */}
                     <div className="pt-4 flex gap-4">
                       {status === "SCHEDULED" && (
@@ -433,8 +435,8 @@ const SessionLiveRoom: React.FC = () => {
                 <div className="bg-white border border-slate-200/70 rounded-[1.5rem] p-6 md:p-8 shadow-sm relative overflow-hidden transition-all hover:-translate-y-1">
                   <h4 className="font-kodchasan text-xl font-bold text-[#151313] mb-6 flex items-center gap-3">
                     <div className="relative w-10 h-10 flex items-center justify-center shrink-0">
-                       <svg viewBox="0 0 100 100" className="absolute inset-0 w-full h-full text-[#facb3b] fill-current transform -rotate-6"><path d="M50 2.5l11.1 11.1 15.7-1.5 6.5 14.4 13.9 7.4-4.8 15 4.8 15-13.9 7.4-6.5 14.4-15.7-1.5L50 97.5l-11.1-11.1-15.7 1.5-6.5-14.4-13.9-7.4 4.8-15-4.8-15 13.9-7.4 6.5-14.4 15.7 1.5z" /></svg>
-                       <svg className="relative z-10 w-4 h-4 text-amber-800" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
+                      <svg viewBox="0 0 100 100" className="absolute inset-0 w-full h-full text-[#facb3b] fill-current transform -rotate-6"><path d="M50 2.5l11.1 11.1 15.7-1.5 6.5 14.4 13.9 7.4-4.8 15 4.8 15-13.9 7.4-6.5 14.4-15.7-1.5L50 97.5l-11.1-11.1-15.7 1.5-6.5-14.4-13.9-7.4 4.8-15-4.8-15 13.9-7.4 6.5-14.4 15.7 1.5z" /></svg>
+                      <svg className="relative z-10 w-4 h-4 text-amber-800" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
                     </div>
                     Student Profile
                   </h4>
@@ -467,54 +469,54 @@ const SessionLiveRoom: React.FC = () => {
             {activePanel === "ai" && (
               <div className="flex flex-col gap-6 max-w-7xl mx-auto w-full">
                 {status === "SCHEDULED" && !parsedLessonPlan && (
-<div className="flex flex-col md:flex-row items-center gap-8 py-6">
-  
-  {/* Icon Section */}
-  <div className="relative w-20 h-20 flex items-center justify-center shrink-0">
-    <svg viewBox="0 0 100 100" className="absolute inset-0 w-full h-full text-slate-100 fill-current transform rotate-[15deg]">
-      <path d="M50 2.5l11.1 11.1 15.7-1.5 6.5 14.4 13.9 7.4-4.8 15 4.8 15-13.9 7.4-6.5 14.4-15.7-1.5L50 97.5l-11.1-11.1-15.7 1.5-6.5-14.4-13.9-7.4 4.8-15-4.8-15 13.9-7.4 6.5-14.4 15.7 1.5z" />
-    </svg>
-    <svg className="relative z-10 w-8 h-8 text-[#facb3b]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-    </svg>
-  </div>
+                  <div className="flex flex-col md:flex-row items-center gap-8 py-6">
 
-  {/* Text Section */}
-  <div className="flex-1 text-center md:text-left">
-    <h4 className="font-kodchasan font-bold text-[#151313] text-3xl mb-3">Plan the Session</h4>
-    <p className="text-sm text-slate-500 font-medium leading-relaxed max-w-xl">
-      Generate a personalized AI lesson plan based on student data and past session notes.
-    </p>
-  </div>
+                    {/* Icon Section */}
+                    <div className="relative w-20 h-20 flex items-center justify-center shrink-0">
+                      <svg viewBox="0 0 100 100" className="absolute inset-0 w-full h-full text-slate-100 fill-current transform rotate-[15deg]">
+                        <path d="M50 2.5l11.1 11.1 15.7-1.5 6.5 14.4 13.9 7.4-4.8 15 4.8 15-13.9 7.4-6.5 14.4-15.7-1.5L50 97.5l-11.1-11.1-15.7 1.5-6.5-14.4-13.9-7.4 4.8-15-4.8-15 13.9-7.4 6.5-14.4 15.7 1.5z" />
+                      </svg>
+                      <svg className="relative z-10 w-8 h-8 text-[#facb3b]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                      </svg>
+                    </div>
 
-  {/* Button Section */}
-  <button 
-    onClick={generateLessonPlan} 
-    disabled={isSaving} 
-    className="px-8 py-4 bg-gradient-to-r from-[#ff5734] to-[#e04a2a] hover:from-[#e04a2a] hover:to-[#ff5734] active:scale-95 text-white font-bold text-sm rounded-2xl transition-all shadow-lg shadow-[#ff5734]/30 disabled:opacity-50 shrink-0 flex items-center gap-3"
-  >
-    {isSaving ? (
-      <>
-        <svg className="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24">
-          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-        </svg>
-        Analyzing Data...
-      </>
-    ) : (
-      "Generate AI Lesson Plan"
-    )}
-  </button>
+                    {/* Text Section */}
+                    <div className="flex-1 text-center md:text-left">
+                      <h4 className="font-kodchasan font-bold text-[#151313] text-3xl mb-3">Plan the Session</h4>
+                      <p className="text-sm text-slate-500 font-medium leading-relaxed max-w-xl">
+                        Generate a personalized AI lesson plan based on student data and past session notes.
+                      </p>
+                    </div>
 
-</div>
+                    {/* Button Section */}
+                    <button
+                      onClick={generateLessonPlan}
+                      disabled={isSaving}
+                      className="px-8 py-4 bg-gradient-to-r from-[#ff5734] to-[#e04a2a] hover:from-[#e04a2a] hover:to-[#ff5734] active:scale-95 text-white font-bold text-sm rounded-2xl transition-all shadow-lg shadow-[#ff5734]/30 disabled:opacity-50 shrink-0 flex items-center gap-3"
+                    >
+                      {isSaving ? (
+                        <>
+                          <svg className="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24">
+                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                          </svg>
+                          Analyzing Data...
+                        </>
+                      ) : (
+                        "Generate AI Lesson Plan"
+                      )}
+                    </button>
+
+                  </div>
                 )}
 
                 {parsedLessonPlan && (
                   <div className="bg-white border border-slate-200/70 rounded-[1.5rem] p-6 md:p-8 shadow-sm relative overflow-hidden transition-all hover:shadow-md">
                     <h4 className="font-kodchasan text-xl font-bold text-[#151313] mb-6 flex items-center gap-3">
                       <div className="relative w-10 h-10 flex items-center justify-center shrink-0">
-                         <svg viewBox="0 0 100 100" className="absolute inset-0 w-full h-full text-purple-100 fill-current transform -rotate-12"><path d="M50 2.5l11.1 11.1 15.7-1.5 6.5 14.4 13.9 7.4-4.8 15 4.8 15-13.9 7.4-6.5 14.4-15.7-1.5L50 97.5l-11.1-11.1-15.7 1.5-6.5-14.4-13.9-7.4 4.8-15-4.8-15 13.9-7.4 6.5-14.4 15.7 1.5z" /></svg>
-                         <svg className="relative z-10 w-4 h-4 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" /></svg>
+                        <svg viewBox="0 0 100 100" className="absolute inset-0 w-full h-full text-purple-100 fill-current transform -rotate-12"><path d="M50 2.5l11.1 11.1 15.7-1.5 6.5 14.4 13.9 7.4-4.8 15 4.8 15-13.9 7.4-6.5 14.4-15.7-1.5L50 97.5l-11.1-11.1-15.7 1.5-6.5-14.4-13.9-7.4 4.8-15-4.8-15 13.9-7.4 6.5-14.4 15.7 1.5z" /></svg>
+                        <svg className="relative z-10 w-4 h-4 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" /></svg>
                       </div>
                       AI Lesson Plan
                     </h4>
@@ -535,8 +537,8 @@ const SessionLiveRoom: React.FC = () => {
                       </div>
                       <div className="bg-slate-50/50 p-6 rounded-2xl border border-slate-100">
                         <strong className="block mb-5 text-purple-600 font-bold text-[10px] uppercase tracking-widest flex items-center gap-2">
-                           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M4 6h16M4 10h16M4 14h16M4 18h16" /></svg>
-                           Outline
+                          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M4 6h16M4 10h16M4 14h16M4 18h16" /></svg>
+                          Outline
                         </strong>
                         <ul className="space-y-4">
                           {parsedLessonPlan.outline.map((o: string, i: number) => (
@@ -553,7 +555,7 @@ const SessionLiveRoom: React.FC = () => {
 
                 {status === "COMPLETED" && (
                   <div className="flex flex-col md:flex-row items-center gap-8 py-6">
-                    
+
                     {/* Icon Section */}
                     <div className="relative w-20 h-20 flex items-center justify-center shrink-0">
                       <svg viewBox="0 0 100 100" className="absolute inset-0 w-full h-full text-slate-100 fill-current transform rotate-[15deg]">
@@ -573,9 +575,9 @@ const SessionLiveRoom: React.FC = () => {
                     </div>
 
                     {/* Button Section */}
-                    <button 
-                      onClick={generateReview} 
-                      disabled={isSaving} 
+                    <button
+                      onClick={generateReview}
+                      disabled={isSaving}
                       className="px-8 py-4 bg-gradient-to-r from-emerald-500 to-emerald-400 hover:from-emerald-400 hover:to-emerald-500 active:scale-95 text-white font-bold text-sm rounded-2xl transition-all shadow-lg shadow-emerald-500/30 disabled:opacity-50 shrink-0 flex items-center gap-3"
                     >
                       {isSaving ? (
@@ -598,8 +600,8 @@ const SessionLiveRoom: React.FC = () => {
                   <div className="bg-white border border-slate-200/70 rounded-[1.5rem] p-6 md:p-8 shadow-sm relative overflow-hidden transition-all hover:shadow-md">
                     <h4 className="font-kodchasan text-xl font-bold text-[#151313] mb-6 flex items-center gap-3">
                       <div className="relative w-10 h-10 flex items-center justify-center shrink-0">
-                         <svg viewBox="0 0 100 100" className="absolute inset-0 w-full h-full text-emerald-100 fill-current transform rotate-12"><path d="M50 2.5l11.1 11.1 15.7-1.5 6.5 14.4 13.9 7.4-4.8 15 4.8 15-13.9 7.4-6.5 14.4-15.7-1.5L50 97.5l-11.1-11.1-15.7 1.5-6.5-14.4-13.9-7.4 4.8-15-4.8-15 13.9-7.4 6.5-14.4 15.7 1.5z" /></svg>
-                         <svg className="relative z-10 w-4 h-4 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" /></svg>
+                        <svg viewBox="0 0 100 100" className="absolute inset-0 w-full h-full text-emerald-100 fill-current transform rotate-12"><path d="M50 2.5l11.1 11.1 15.7-1.5 6.5 14.4 13.9 7.4-4.8 15 4.8 15-13.9 7.4-6.5 14.4-15.7-1.5L50 97.5l-11.1-11.1-15.7 1.5-6.5-14.4-13.9-7.4 4.8-15-4.8-15 13.9-7.4 6.5-14.4 15.7 1.5z" /></svg>
+                        <svg className="relative z-10 w-4 h-4 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" /></svg>
                       </div>
                       AI Session Review
                     </h4>
@@ -640,7 +642,7 @@ const SessionLiveRoom: React.FC = () => {
                   <div className="  p-8 text-center ">
                     <div className="flex justify-center mb-4">
                       <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-sm text-emerald-500">
-                         <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" /></svg>
+                        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" /></svg>
                       </div>
                     </div>
                     <p className="font-kodchasan font-bold text-emerald-800 text-2xl">Session fully reviewed!</p>
