@@ -911,7 +911,7 @@ is incomplete.
 **Hashmil Muhammed**
 
 -   GitHub: https://github.com/Hashmil-Muhammed
--   Mentora: [https://github.com/Hashmil-Muhammed/Mentora](https://github.com/Hashmil-Muhammed/MENTORA-AI_Assisted_Platform_for_Online_Tutoring)
+-   Mentora: https://github.com/Hashmil-Muhammed/MENTORA-AI_Assisted_Platform_for_Online_Tutoring
 
 
 
